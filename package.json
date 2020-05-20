@@ -1,0 +1,23 @@
+{
+  "name": "api-olivedos-covid",
+  "version": "1.0.0",
+  "description": "API RestFull para acesso aos dados públicos sobre a COVID-19 no município de Olivêdos/PB",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "keywords": [],
+  "author": "Joaquim A R Neto",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^1.4.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "sequelize-cli": "^5.5.1"
+  }
+}
