@@ -27,12 +27,12 @@ router.get("/current", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { date, suspect, descarded, confirmed, monitored, deaths } = req.body;
+  const { date, suspect, discarded, confirmed, monitored, deaths } = req.body;
 
   Olivedos.create({
     date,
     suspect,
-    descarded,
+    discarded,
     confirmed,
     monitored,
     deaths,
