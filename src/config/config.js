@@ -42,6 +42,6 @@ module.exports = {
         return next();
       },
     },
-    timezone: "-03:00", // for writing to database
+    // timezone: "-03:00", // for writing to database
   },
 };
