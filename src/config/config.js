@@ -8,7 +8,7 @@ module.exports = {
     host: process.env.LOCAL_DB,
     port: process.env.PORT_DB,
     dialect: "mysql",
-    operatorsAliases: false,
+    // operatorsAliases: false,
     dialectOptions: {
       bigNumberStrings: true,
 
@@ -21,15 +21,6 @@ module.exports = {
         return next();
       },
     },
-    timezone: "-03:00", // for writing to database
-  },
-  test: {
-    username: "root",
-    password: null,
-    database: "database_test",
-    host: "127.0.0.1",
-    dialect: "mysql",
-    operatorsAliases: false,
   },
   production: {
     username: process.env.USER_DB,
@@ -38,7 +29,7 @@ module.exports = {
     host: process.env.LOCAL_DB,
     port: process.env.PORT_DB,
     dialect: "mysql",
-    operatorsAliases: false,
+    // operatorsAliases: false,
     dialectOptions: {
       bigNumberStrings: true,
 
