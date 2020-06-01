@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const olivedosRoutes = require("./controllers/olivedos");
+const paraibaRoutes = require("./controllers/paraiba");
 
 const app = express();
 
@@ -28,5 +29,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/", olivedosRoutes);
+app.use("/pb", paraibaRoutes);
 
 module.exports = app;
