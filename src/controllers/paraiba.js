@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
     deaths,
   };
 
-  if (!date || !confirmed || !active || !deaths) {
+  if (!date || !confirmed || (!active && !recovered) || !deaths) {
     return res.status(httpStatus.BAD_REQUEST).json({
       mensagem: "Parâmetros incompletos",
     });
@@ -45,6 +45,10 @@ router.post("/", (req, res) => {
 
   if (!recovered) {
     save.recovered = confirmed - (active + deaths);
+  }
+
+  if (!active) {
+    save.active = confirmed - (recovered + deaths);
   }
 
   Paraiba.create(save)
