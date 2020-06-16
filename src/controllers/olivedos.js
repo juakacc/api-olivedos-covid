@@ -27,7 +27,15 @@ router.get("/current", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { date, suspect, discarded, confirmed, monitored, deaths } = req.body;
+  const {
+    date,
+    suspect,
+    discarded,
+    confirmed,
+    monitored,
+    deaths,
+    recovered,
+  } = req.body;
 
   Olivedos.create({
     date,
@@ -36,6 +44,7 @@ router.post("/", (req, res) => {
     confirmed,
     monitored,
     deaths,
+    recovered,
   })
     .then((response) =>
       res.status(httpStatus.CREATED).json(response.dataValues)
