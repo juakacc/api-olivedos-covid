@@ -5,12 +5,23 @@ const Olivedos = require("../models").olivedos;
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  Olivedos.findAll()
+  let { page, limit } = req.query;
+  let offset = 0;
+
+  if (page && limit)
+    offset = page * limit;
+
+  if (!limit) limit = 500;
+  
+
+  Olivedos.findAll({ offset: parseInt(offset), limit: parseInt(limit) })
     .then((data) => res.status(httpStatus.OK).json(data))
-    .catch(() =>
+    .catch((err) => {
+      console.log(err);
       res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
         erro: "Ocorreu um erro na solicitação",
       })
+    }
     );
 });
 
