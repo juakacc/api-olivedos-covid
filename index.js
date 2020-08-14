@@ -1,8 +1,8 @@
-require("dotenv").config();
-const http = require("http");
-const cors = require("cors");
+require('dotenv').config();
+const http = require('http');
+const cors = require('cors');
 
-const app = require("./src/app");
+const app = require('./src/app');
 
 app.use(cors());
 

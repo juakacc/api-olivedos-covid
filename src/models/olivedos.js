@@ -1,7 +1,6 @@
-"use strict";
 module.exports = (sequelize, DataTypes) => {
   const olivedos = sequelize.define(
-    "olivedos",
+    'olivedos',
     {
       date: DataTypes.DATE,
       suspect: DataTypes.INTEGER,
@@ -14,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       timestamps: false,
       freezeTableName: true,
-    }
+    },
   );
-  olivedos.associate = function (models) {
+  olivedos.associate = () => {
     // associations can be defined here
   };
   return olivedos;

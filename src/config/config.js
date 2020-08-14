@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 
 module.exports = {
   development: {
@@ -7,15 +7,15 @@ module.exports = {
     database: process.env.DATABASE_DB,
     host: process.env.LOCAL_DB,
     port: process.env.PORT_DB,
-    dialect: "mysql",
+    dialect: 'mysql',
     // operatorsAliases: false,
     dialectOptions: {
       bigNumberStrings: true,
 
       dateStrings: true,
-      typeCast: function (field, next) {
+      typeCast(field, next) {
         // for reading from database
-        if (field.type === "DATETIME") {
+        if (field.type === 'DATETIME') {
           return field.string();
         }
         return next();
@@ -28,15 +28,15 @@ module.exports = {
     database: process.env.DATABASE_DB,
     host: process.env.LOCAL_DB,
     port: process.env.PORT_DB,
-    dialect: "mysql",
+    dialect: 'mysql',
     // operatorsAliases: false,
     dialectOptions: {
       bigNumberStrings: true,
 
       dateStrings: true,
-      typeCast: function (field, next) {
+      typeCast(field, next) {
         // for reading from database
-        if (field.type === "DATETIME") {
+        if (field.type === 'DATETIME') {
           return field.string();
         }
         return next();

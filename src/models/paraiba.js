@@ -1,7 +1,6 @@
-"use strict";
 module.exports = (sequelize, DataTypes) => {
   const paraiba = sequelize.define(
-    "paraiba",
+    'paraiba',
     {
       date: DataTypes.DATE,
       confirmed: DataTypes.INTEGER,
@@ -12,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       timestamps: false,
       freezeTableName: true,
-    }
+    },
   );
-  paraiba.associate = function (models) {};
+  paraiba.associate = () => {};
   return paraiba;
 };
