@@ -5,15 +5,16 @@ const Olivedos = require("../models").olivedos;
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  let { page, limit } = req.query;
-  let offset = 0;
+  const page = req.query.page || 0;
+  const limit = req.query.limit || 20;
 
-  if (page && limit)
-    offset = page * limit;
-
-  if (!limit) limit = 500;
+  if (isNaN(page) || isNaN(limit)) {
+    return res.status(httpStatus.BAD_REQUEST).json({
+      erro: "Parâmetro(s) inválido(s)"
+    })
+  }
+  const offset = page * limit;
   
-
   Olivedos.findAll({ offset: parseInt(offset), limit: parseInt(limit) })
     .then((data) => res.status(httpStatus.OK).json(data))
     .catch((err) => {
