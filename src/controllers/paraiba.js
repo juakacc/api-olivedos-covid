@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   // eslint-disable-next-line no-restricted-globals
   if (isNaN(page) || isNaN(limit)) {
     return res.status(httpStatus.BAD_REQUEST).json({
-      erro: 'Parâmetro(s) inválido(s)',
+      erro: 'Parâmetro(s) inválido(s)'
     });
   }
   const offset = page * limit;
@@ -19,23 +19,23 @@ router.get('/', (req, res) => {
   return Paraiba.findAll({ offset: parseInt(offset, 10), limit: parseInt(limit, 10) })
     .then((data) => res.status(httpStatus.OK).json(data))
     .catch(() => res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
-      erro: 'Ocorreu um erro na solicitação',
+      erro: 'Ocorreu um erro na solicitação'
     }));
 });
 
 router.get('/current', (req, res) => {
   Paraiba.findOne({
-    order: [['date', 'DESC']],
+    order: [['date', 'DESC']]
   })
     .then((data) => res.status(httpStatus.OK).json(data))
     .catch(() => res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
-      erro: 'Ocorreu um erro na solicitação',
+      erro: 'Ocorreu um erro na solicitação'
     }));
 });
 
 router.post('/', (req, res) => {
   const {
-    date, recovered, confirmed, active, deaths,
+    date, recovered, confirmed, active, deaths
   } = req.body;
 
   const save = {
@@ -43,12 +43,12 @@ router.post('/', (req, res) => {
     recovered,
     confirmed,
     active,
-    deaths,
+    deaths
   };
 
   if (!date || !confirmed || (!active && !recovered) || !deaths) {
     return res.status(httpStatus.BAD_REQUEST).json({
-      mensagem: 'Parâmetros incompletos',
+      mensagem: 'Parâmetros incompletos'
     });
   }
 
@@ -63,7 +63,7 @@ router.post('/', (req, res) => {
   return Paraiba.create(save)
     .then((response) => res.status(httpStatus.CREATED).json(response.dataValues))
     .catch(() => res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
-      erro: 'Ocorreu um erro na solicitação',
+      erro: 'Ocorreu um erro na solicitação'
     }));
 });
 

@@ -8,12 +8,12 @@ module.exports = (sequelize, DataTypes) => {
       confirmed: DataTypes.INTEGER,
       monitored: DataTypes.INTEGER,
       deaths: DataTypes.INTEGER,
-      recovered: DataTypes.INTEGER,
+      recovered: DataTypes.INTEGER
     },
     {
       timestamps: false,
-      freezeTableName: true,
-    },
+      freezeTableName: true
+    }
   );
   olivedos.associate = () => {
     // associations can be defined here

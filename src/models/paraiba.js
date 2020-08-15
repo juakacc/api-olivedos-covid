@@ -6,12 +6,12 @@ module.exports = (sequelize, DataTypes) => {
       confirmed: DataTypes.INTEGER,
       active: DataTypes.INTEGER,
       recovered: DataTypes.INTEGER,
-      deaths: DataTypes.INTEGER,
+      deaths: DataTypes.INTEGER
     },
     {
       timestamps: false,
-      freezeTableName: true,
-    },
+      freezeTableName: true
+    }
   );
   paraiba.associate = () => {};
   return paraiba;
